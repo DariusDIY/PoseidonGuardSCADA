@@ -1,0 +1,62 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="row cabeceraHistorial py-2">
+      <div class="col botonIzq"><button (click)="alimentacionAnteriorSemana()"><i class="fa-solid fa-circle-left fa-2x"></i></button></div>
+      <div class="col text-center">
+        <h5 class="text-center"><i class="fa-solid fa-utensils"></i><b> Alimentación</b></h5>
+        {{AlimentacionLunesSemana}} -> {{AlimentaciondomingoSemana}}
+      </div>
+      <div class="col text-start botonDer"><button (click)="alimentacionSiguienteSemana()"><i class="fa-solid fa-circle-right fa-2x"></i></button></div>
+    </div>
+    <div class="row" *ngIf="historialAlimentacion">
+      <div class="col-md-12">
+        <p *ngIf="!historialAlimentacion.estado" class="text-center mt-3"><i class="fa-solid fa-circle-exclamation fa-2x"></i><br><b>No existen registros de alimentación en el rango seleccionado</b></p>
+
+        <table class="table" *ngIf="historialAlimentacion.estado">
+          <thead>
+            <tr>
+              <th scope="col">Fecha</th>
+              <th scope="col">Horario 1</th>
+              <th scope="col">Horario 2</th>
+              <th scope="col">Horario 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let historialA of formatoArreglado">
+                <td>{{historialA.fecha|diaSemana}}</td>
+                <td>
+                  <span *ngFor="let horario1 of historialA.horarios.horario1">
+                    <div *ngIf="horario1">
+                      <i class="fa-solid fa-clock"></i> {{horario1.registro}}
+                      / <i class="fa-solid fa-stopwatch"></i> {{horario1.cantidad}}
+                      <br>
+                    </div>
+                  </span>
+                </td>
+                <td>
+                  <span *ngFor="let horario2 of historialA.horarios.horario2">
+                    <div *ngIf="horario2">
+                      <i class="fa-solid fa-clock"></i> {{horario2.registro}}
+                      / <i class="fa-solid fa-stopwatch"></i> {{horario2.cantidad}}
+                      <br>
+                    </div>
+                  </span>
+                </td>
+                <td>
+                  <span *ngFor="let horario3 of historialA.horarios.horario3">
+                    <div *ngIf="horario3">
+                      <i class="fa-solid fa-clock"></i> {{horario3.registro}}
+                      / <i class="fa-solid fa-stopwatch"></i> {{horario3.cantidad}}
+                    </div>
+                    <br>
+                  </span>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>

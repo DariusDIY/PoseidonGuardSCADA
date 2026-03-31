@@ -1,0 +1,172 @@
+<app-header></app-header>
+
+<div class="container" *ngIf="acuario">
+  <div class="row">
+    <div class="col-lg-4 col-md-6 my-2">
+      <app-tarjeta-panel [Acuario]="acuario" [ventana]="1"></app-tarjeta-panel>
+    </div>
+
+    <div class="col-lg-8 col-md-6 my-2">
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <h4 class="card-title text-center"><b>CONFIGURACIONES DEL ACUARIO</b></h4>
+          <hr>
+          <h5 class="text-center"><i class="fa-solid fa-utensils"></i><b> Alimentación</b></h5>
+          <div class="row">
+            <div class="col-md-4">
+              <h6 class="text-center"><b>Horario 1</b></h6>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-clock"></i></span>
+                <input type="time" class="form-control" [(ngModel)]="horario1">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-stopwatch"></i></span>
+                <input type="number" class="form-control" [(ngModel)]="cantidad1">
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <h6 class="text-center"><b>Horario 2</b></h6>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-clock"></i></span>
+                <input type="time" class="form-control" [(ngModel)]="horario2">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-stopwatch"></i></span>
+                <input type="number" class="form-control" [(ngModel)]="cantidad2">
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <h6 class="text-center"><b>Horario 3</b></h6>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-clock"></i></span>
+                <input type="time" class="form-control" [(ngModel)]="horario3">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-stopwatch"></i></span>
+                <input type="number" class="form-control" [(ngModel)]="cantidad3">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#RecargaModal">Recargar Alimentador al 100%</button>
+          </div>
+          <hr>
+
+            <div class="row">
+              <div class="col">
+                <h5 class="text-center"><i class="fa-solid fa-temperature-three-quarters"></i><b> Temperatura</b></h5>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Temp Min:</span>
+                  <input type="number" class="form-control" [(ngModel)]="tempMin">
+                  <span class="input-group-text" id="basic-addon1">Temp Max:</span>
+                  <input type="number" class="form-control" [(ngModel)]="tempMax">
+                </div>
+              </div>
+              <div class="col">
+                <h5 class="text-center"><i class="fa-solid fa-chart-line"></i><b> pH</b></h5>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">pH Min:</span>
+                  <input type="number" class="form-control" [(ngModel)]="phMin">
+                  <span class="input-group-text" id="basic-addon1">pH Max:</span>
+                  <input type="number" class="form-control" [(ngModel)]="phMax">
+                </div>
+              </div>
+            </div>
+
+          <hr>
+          <h5 class="text-center"><i class="fa-solid fa-lightbulb"></i><b> Iluminación</b></h5>
+          <div class="row">
+            <div class="col-md-4 offset-md-2">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Horario On:</span>
+                <input type="time" class="form-control" [(ngModel)]="luzHorarioOn">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Horario Off:</span>
+                <input type="time" class="form-control" [(ngModel)]="luzHorarioOff">
+              </div>
+            </div>
+          </div>
+          <hr>
+
+          <div class="row">
+            <div class="col text-center">
+              <button (click)="guardarConfiguraciones()" class="btn btn-primary">Guardar Configuraciones</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="card my-2" style="width: 100%;">
+        <div class="card-body">
+          <h4 class="card-title text-center"><b>PECES DEL ACUARIO</b></h4>
+          <div class="row">
+            <a type="button" data-bs-toggle="modal" data-bs-target="#pecesModal">
+              <i class="fa-solid fa-circle-plus fa-2x"></i>
+            </a>
+          </div>
+          <div class="row">
+            <div class="col-md-4" *ngFor="let pez of pecesAcuario">
+              <app-tarjeta-pez [pezInfo]="pez" [operacion]="'quitar'" [idacuario]="idacuario" [keypass]="keypass"></app-tarjeta-pez>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+
+
+
+<!-- Modal Peces -->
+<div class="modal fade" id="pecesModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-center">LISTA DE PECES</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-3" *ngFor="let pez of pecesNoEnAcuario">
+            <app-tarjeta-pez [pezInfo]="pez" [operacion]="'agregar'" [idacuario]="idacuario" [keypass]="keypass"></app-tarjeta-pez>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Modal Recarga Alimentador-->
+<div class="modal fade" id="RecargaModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">RECARGA DEL ALIMENTADOR</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Asegurese de haber llenado el alimentador hasta la marca.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="recargarAlimentador()" data-bs-dismiss="modal">Recargar Alimentador al 100%</button>
+      </div>
+    </div>
+  </div>
+</div>

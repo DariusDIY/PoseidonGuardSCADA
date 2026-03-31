@@ -1,0 +1,160 @@
+
+<div class="card" style="width: 100%;" *ngIf="Acuario">
+
+  <div class="card-header p-0">
+    <div class="row">
+      <div class="col">
+        <h4 class="card-title">{{Acuario.acuarioInfo.keyAcuario}}</h4>
+      </div>
+      <div class="col text-end">
+
+        <span [ngClass]="claseVerificarAntiguedad(Acuario.acuarioInfo.modo, Acuario.acuarioInfo.conexion)"><i class="mx-2 mt-2 fa-solid fa-wifi"></i></span>
+
+        <span *ngIf="Acuario.acuarioInfo.modo!=1"><i class="mx-2 mt-2 fa-solid fa-microchip colorAzulClaro"></i></span>
+        <span *ngIf="Acuario.acuarioInfo.modo==1"><i class="mx-2 mt-2 fa-solid fa-microchip colorNaranja animate__animated animate__flash animate__infinite"></i></span>
+
+        <span *ngIf="Acuario.acuarioInfo.modo!=2"><i class="mx-2 mt-2 fa-solid fa-utensils colorAzulClaro"></i></span>
+        <span *ngIf="Acuario.acuarioInfo.modo==2"><i class="mx-2 mt-2 fa-solid fa-utensils colorVerde animate__animated animate__flash animate__infinite"></i></span>
+
+
+      </div>
+    </div>
+  </div>
+  <img src="assets/images/acuarios/{{Acuario.acuarioInfo.idacuario}}.jpg" class="card-img-top img-fluid">
+  <p class="pecesLista">{{Acuario.acuarioInfo.peces}}</p>
+  <hr>
+  <div class="card-body">
+    <div class="row">
+        <h5 class="tituloTarjeta">Temperatura<br>
+          <span [ngClass]="claseTemperatura(Acuario.temperatura.tempMin, Acuario.temperatura.tempMax)">
+            <i class="fa-solid fa-temperature-three-quarters"></i> {{calcularTemperatura(Acuario.temperatura.tempActual.temperatura1, Acuario.temperatura.tempActual.temperatura2)}}°C
+          </span>
+        </h5>
+      <div class="col text-center">
+        Min: {{Acuario.temperatura.tempMin}}°C | Max: {{Acuario.temperatura.tempMax}}°C
+        <br>
+        <span [ngClass]="claseCalentador(Acuario.temperatura.tempActual.calentador1, 1)">1<i class="fa-solid fa-eye-dropper"></i> {{calentadorEstado1}}</span> | <span [ngClass]="claseCalentador(Acuario.temperatura.tempActual.calentador2, 2)">2<i class="fa-solid fa-eye-dropper"></i> {{calentadorEstado2}}</span>
+      </div>
+
+    </div>
+    <hr>
+    <div class="row">
+
+      <div class="col text-center">
+        <h5 class="tituloTarjeta">pH<br>
+          <span [ngClass]="clasePh(Acuario.ph.phActual, Acuario.ph.phMin, Acuario.ph.phMax)">
+            <i class="fa-solid fa-chart-line"></i> {{Acuario.ph.phActual}}
+          </span>
+        </h5>
+        Min:{{Acuario.ph.phMin}} | Max:{{Acuario.ph.phMax}}
+      </div>
+
+      <div class="col text-center">
+        <h5 class="tituloTarjeta">Luz<br>
+          <span [ngClass]="claseIluminacion(Acuario.iluminacion.estado, Acuario.iluminacion.sensor)" *ngIf="!Acuario.iluminacion.estado">
+            <i class="fa-regular fa-lightbulb"></i> OFF
+          </span>
+          <span [ngClass]="claseIluminacion(Acuario.iluminacion.estado, Acuario.iluminacion.sensor)" *ngIf="Acuario.iluminacion.estado">
+            <i class="fa-solid fa-lightbulb"></i> ON
+          </span>
+        </h5>
+        ON: {{Acuario.iluminacion.on}} | OFF: {{Acuario.iluminacion.off}}
+      </div>
+    </div>
+    <hr>
+
+    <div class="row horariosAlimentacion">
+      <h5 class="tituloTarjeta">Alimentación</h5>
+      <div class="col" [ngClass]="claseHorariosAlimentacion(Acuario.alimentacion.horarios.estado1)">
+        <i class="fa-solid fa-clock"></i> {{Acuario.alimentacion.horarios.horario1}}
+        <br><i class="fa-solid fa-stopwatch"></i> {{Acuario.alimentacion.horarios.cantidad1}}"
+        <br>(+{{Acuario.alimentacion.horarios.estado1}})
+      </div>
+      <div class="col" [ngClass]="claseHorariosAlimentacion(Acuario.alimentacion.horarios.estado2)">
+        <i class="fa-solid fa-clock"></i> {{Acuario.alimentacion.horarios.horario2}}
+        <br><i class="fa-solid fa-stopwatch"></i> {{Acuario.alimentacion.horarios.cantidad2}}"
+        <br>(+{{Acuario.alimentacion.horarios.estado2}})
+      </div>
+      <div class="col" [ngClass]="claseHorariosAlimentacion(Acuario.alimentacion.horarios.estado3)">
+        <i class="fa-solid fa-clock"></i> {{Acuario.alimentacion.horarios.horario3}}
+        <br><i class="fa-solid fa-stopwatch"></i> {{Acuario.alimentacion.horarios.cantidad3}}"
+        <br>(+{{Acuario.alimentacion.horarios.estado3}})
+      </div>
+    </div>
+
+
+    <div class="row diasAlimentacion">
+      <div class="col" [ngClass]="claseDiasAlimentacion(Acuario.alimentacion.dias.lunes)">
+        <i class="fa-solid fa-utensils"></i>
+        <b>
+          <br>Lu
+          <br>{{conteoAlimentaciondia(Acuario.alimentacion.dias.lunes)}}
+        </b>
+      </div>
+      <div class="col" [ngClass]="claseDiasAlimentacion(Acuario.alimentacion.dias.martes)">
+        <i class="fa-solid fa-utensils"></i>
+        <b>
+          <br>MA
+          <br>{{conteoAlimentaciondia(Acuario.alimentacion.dias.martes)}}
+        </b>
+      </div>
+      <div class="col" [ngClass]="claseDiasAlimentacion(Acuario.alimentacion.dias.miercoles)">
+        <i class="fa-solid fa-utensils"></i>
+        <b>
+          <br>MI
+          <br>{{conteoAlimentaciondia(Acuario.alimentacion.dias.miercoles)}}
+        </b>
+      </div>
+      <div class="col" [ngClass]="claseDiasAlimentacion(Acuario.alimentacion.dias.jueves)">
+        <i class="fa-solid fa-utensils"></i>
+        <b>
+          <br>JU
+          <br>{{conteoAlimentaciondia(Acuario.alimentacion.dias.jueves)}}
+        </b>
+      </div>
+      <div class="col" [ngClass]="claseDiasAlimentacion(Acuario.alimentacion.dias.viernes)">
+        <i class="fa-solid fa-utensils"></i>
+        <b>
+          <br>VI
+          <br>{{conteoAlimentaciondia(Acuario.alimentacion.dias.viernes)}}
+        </b>
+      </div>
+      <div class="col" [ngClass]="claseDiasAlimentacion(Acuario.alimentacion.dias.sabado)">
+        <i class="fa-solid fa-utensils"></i>
+        <b>
+          <br>SA
+          <br>{{conteoAlimentaciondia(Acuario.alimentacion.dias.sabado)}}
+        </b>
+      </div>
+      <div class="col" [ngClass]="claseDiasAlimentacion(Acuario.alimentacion.dias.domingo)">
+        <i class="fa-solid fa-utensils"></i>
+        <b>
+          <br>DO
+          <br>{{conteoAlimentaciondia(Acuario.alimentacion.dias.domingo)}}
+        </b>
+      </div>
+    </div>
+
+
+    <div class="row my-2">
+      <div class="col text-center">
+        <div class="progress" role="progressbar">
+          <div class="progress-bar" [ngClass]="claseAlimentadorCantidad(Acuario.alimentacion.contenido.actualPorcentual)" [style.width.%]="Acuario.alimentacion.contenido.actualPorcentual">{{Acuario.alimentacion.contenido.actualPorcentual}}%</div>
+        </div>
+        {{Acuario.alimentacion.contenido.actual}}" / {{Acuario.alimentacion.contenido.total}}"
+      </div>
+    </div>
+
+  </div>
+  <div class="card-footer">
+    <div class="btn-group" role="group">
+      <a *ngIf="ventana>0" [routerLink]="['/Poseidon/Panel']" class="btn btn-outline-primary btn-tarjeta"><i class="fa-solid fa-solar-panel"></i> Volver a Panel</a>
+      <button *ngIf="ventana==0 || ventana==2" (click)="irConfiguraciones(Acuario.acuarioInfo.idacuario)" class="btn btn-outline-primary btn-tarjeta"><i class="fa-solid fa-gear"></i> Configuraciones</button>
+      <button *ngIf="ventana==0 || ventana==1" (click)="irHistorial(Acuario.acuarioInfo.idacuario)" class="btn btn-outline-primary btn-tarjeta"><i class="fa-solid fa-chart-line"></i> Historial</button>
+    </div>
+  </div>
+</div>
+
+
+
+

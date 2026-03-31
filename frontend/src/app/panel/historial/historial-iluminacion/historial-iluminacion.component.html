@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="row cabeceraHistorial py-2">
+      <div class="col botonIzq"><button (click)="iluminacionAnteriorSemana()"><i class="fa-solid fa-circle-left fa-2x"></i></button></div>
+      <div class="col text-center">
+        <h5 class="text-center"><i class="fa-solid fa-lightbulb"></i><b> Iluminación</b></h5>
+        {{IluminacionLunesSemana}} -> {{IluminaciondomingoSemana}}
+      </div>
+      <div class="col botonDer"><button (click)="iluminacionSiguienteSemana()"><i class="fa-solid fa-circle-right fa-2x"></i></button></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p *ngIf="!historialIluminacionEstado" class="text-center mt-3"><i class="fa-solid fa-circle-exclamation fa-2x"></i><br><b>No existen registros de iluminación en el rango seleccionado</b></p>
+        <p-chart *ngIf="historialIluminacionEstado" type="line" [data]="data" [options]="options" class="h-[30rem]" />
+      </div>
+    </div>
+  </div>
+</div>

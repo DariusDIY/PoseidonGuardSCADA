@@ -1,0 +1,29 @@
+
+<div class="container-fluid colorAzul backGris">
+  <div class="row">
+    <div class="col-md-2 offset-md-5 pt-5">
+      <div style="height: calc(100vh - 110px); display: flexbox; align-content: center;">
+        <p class="text-center mb-5">
+          <img src="assets/images/logotipo.png">
+        </p>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Usuario</label>
+          <input type="text" class="form-control" [(ngModel)] = "user">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" [(ngModel)] = "pass">
+        </div>
+
+        <div class="d-grid gap-2">
+          <button (click)="loginAcuarista()" class="btn btn-primary">Entrar</button>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+  </div>

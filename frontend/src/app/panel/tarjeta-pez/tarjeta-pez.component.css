@@ -1,0 +1,10 @@
+@import url(../../../styles.css);
+
+h5{
+  color: var(--color-azul);
+  font-size: 18px;
+}
+
+.card-body{
+  font-size: 13px;
+}

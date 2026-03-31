@@ -1,0 +1,56 @@
+:root{
+  --color-azul: #0D2C99;
+  --color-azul-claro: #3C55AC;
+  --color-gris: #D7D7DC;
+  --color-rojo: #E93434;
+  --color-naranja: #f89e16;
+  --color-verde: #2EC662;
+  --color-info: #7EA2D6;
+  --negro-transparente: rgba(0, 0, 0, 0.5) !important;
+}
+
+.puntero{
+  cursor: pointer;
+}
+
+body{
+  background: var(--color-azul-claro) !important;
+}
+
+.colorGris{
+  color: var(--color-gris);
+}
+
+.colorAzul{
+  color: var(--color-azul);
+}
+
+.backGris{
+  background: var(--color-gris);
+}
+
+.cabeceraHistorial{
+  background: var(--color-azul);
+  color: var(--color-gris);
+  border-radius: 10px 10px 0px 0px;
+}
+
+.cabeceraHistorial button{
+  background: none;
+  color: var(--color-gris);
+  border: 0;
+}
+.botonIzq{
+  display: flex;
+  vertical-align: middle;
+  justify-content: right;
+}
+.botonDer{
+  display: flex;
+  vertical-align: middle;
+  justify-content: left;
+}
+
+.text-justify{
+  text-align: justify;
+}

@@ -1,0 +1,13 @@
+@import url(../../../styles.css);
+
+h1{
+  color: var(--color-gris);
+}
+
+
+.agregarAcuario{
+  color: var(--color-gris);
+  text-decoration: none;
+  font-size: 30px;
+}
+

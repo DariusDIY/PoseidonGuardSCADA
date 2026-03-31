@@ -1,0 +1,72 @@
+[
+  {
+    "idalimentacion": 80,
+    "idacuario": 1,
+    "horario": 1,
+    "cantidad": 10,
+    "registro": "2025-04-14 00:00:00"
+  },
+  {
+    "idalimentacion": 76,
+    "idacuario": 1,
+    "horario": 1,
+    "cantidad": 30,
+    "registro": "2025-04-14 19:21:00"
+  },
+  {
+    "idalimentacion": 81,
+    "idacuario": 1,
+    "horario": 1,
+    "cantidad": 10,
+    "registro": "2025-04-14 19:54:23"
+  },
+  {
+    "idalimentacion": 82,
+    "idacuario": 1,
+    "horario": 1,
+    "cantidad": 10,
+    "registro": "2025-04-14 19:58:43"
+  },
+  {
+    "idalimentacion": 83,
+    "idacuario": 1,
+    "horario": 2,
+    "cantidad": 20,
+    "registro": "2025-04-14 20:15:03"
+  },
+  {
+    "idalimentacion": 84,
+    "idacuario": 1,
+    "horario": 3,
+    "cantidad": 13,
+    "registro": "2025-04-14 21:30:42"
+  },
+  {
+    "idalimentacion": 78,
+    "idacuario": 1,
+    "horario": 1,
+    "cantidad": 30,
+    "registro": "2025-04-15 00:00:00"
+  },
+  {
+    "idalimentacion": 85,
+    "idacuario": 1,
+    "horario": 1,
+    "cantidad": 10,
+    "registro": "2025-04-15 09:40:13"
+  },
+  {
+    "idalimentacion": 86,
+    "idacuario": 1,
+    "horario": 2,
+    "cantidad": 20,
+    "registro": "2025-04-15 09:40:44"
+  },
+  {
+    "idalimentacion": 79,
+    "idacuario": 1,
+    "horario": 2,
+    "cantidad": 150,
+    "registro": "2025-04-15 22:00:00"
+  }
+]

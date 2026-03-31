@@ -1,0 +1,124 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col my-2">
+      <a data-bs-toggle="modal" data-bs-target="#ModalNuevoAcuario" class="agregarBoton puntero"><i class="fa-solid fa-circle-plus"></i> Agregar Pez</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 my-2" *ngFor="let pez of listaPeces">
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <app-tarjeta-pez [idacuario]="0" [pezInfo]="pez" [operacion]="'editar'" (pezEditar)="recibirDatoPez($event)"></app-tarjeta-pez>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ModalNuevoAcuario" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 colorAzul"><b>AGREGAR NUEVO PEZ</b></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card" style="width: 100%;">
+          <div class="card-body">
+            <h4 class="card-title text-center"><b>INFORMACIÓN DEL PEZ</b></h4>
+            <hr>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Nombre Común:</span>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Nombre Científico:</span>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Temp Min:</span>
+                  <input type="number" class="form-control">
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Temp Max:</span>
+                  <input type="number" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">pH Min:</span>
+                  <input type="number" class="form-control">
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">pH Max:</span>
+                  <input type="number" class="form-control">
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="col-md-12">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Temperamento:</span>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Dieta:</span>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Longitud:</span>
+                  <input type="text" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                  <label for="formFile" class="form-label">Fotografía del pez</label>
+                  <input class="form-control" type="file" id="foto" (change)="onFileSelected($event)" accept="image/*">
+                </div>
+                <img *ngIf="imgPreview" [src]="imgPreview" class="img-fluid" />
+
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col text-center">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-primary" (click)="agregarNuevoPez()">Guardar Información del Pez</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

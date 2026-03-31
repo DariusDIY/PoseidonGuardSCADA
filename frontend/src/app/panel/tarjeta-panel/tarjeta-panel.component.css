@@ -1,0 +1,100 @@
+@import url(../../../styles.css);
+h5{
+  margin-bottom: 1px;
+}
+
+hr{
+  margin: 2px !important;
+}
+
+.colorAzulClaro{
+  color: var(--color-info);
+}
+.colorVerde{
+  color: var(--color-verde);
+}
+.colorRojo{
+  color: var(--color-rojo);
+}
+.colorNaranja{
+  color: var(--color-naranja);
+}
+.colorGris{
+  color: var(--color-gris);
+}
+
+.card{
+  background: var(--color-gris);
+font-size: 13px !important;
+}
+
+.card-header{
+  background: var(--color-azul);
+}
+
+.card-body{
+  padding: 0px 10px 5px 10px !important;
+}
+
+.card-img-top{
+  border-radius: 0 !important;
+}
+
+.pecesLista{
+  text-align: center;
+  color: var(--color-azul);
+  margin-bottom: 2px;
+}
+
+.card-title{
+  margin-left: 10px;
+  margin-top: 2px;
+  font-weight: bolder;
+  color: var(--color-gris);
+}
+
+
+.tituloTarjeta{
+  text-align: center;
+  color: var(--color-azul);
+  font-weight: bold;
+}
+
+
+.horariosAlimentacion .col{
+  text-align: center;
+  font-weight: bold;
+}
+
+.diasAlimentacion .col{
+  margin-top: 10px;
+  text-align: center;
+
+}
+
+.btn-group{
+  width: 100% !important;
+}
+
+.progress-barRojo{
+  background-color: var(--color-rojo);
+}
+.progress-barNaranja{
+  background-color: var(--color-naranja);
+}
+.progress-barVerde{
+  background-color: var(--color-verde);
+}
+
+.btn-outline-primary{
+  width: 100%;
+  background: var(--color-info);
+  border-color: var(--color-azul) !important;
+  color: var(--color-azul) !important;
+}
+
+.btn-outline-primary:hover{
+  background: var(--color-azul);
+  border-color: var(--color-azul) !important;
+  color: var(--color-gris) !important;
+}

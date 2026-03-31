@@ -1,0 +1,29 @@
+<div class="card my-2" style="width: 100%;">
+  <div class="card-body">
+    <img src="assets/images/peces/{{pezInfo.idpez}}.jpg" class="img-fluid">
+    <h5 class="text-center"><b>{{pezInfo.nombreComun}}</b></h5>
+    <p class="text-center">{{pezInfo.nombreCientifico}}</p>
+    <hr>
+    <p>
+      Temp Min: {{pezInfo.tempMin}}
+      <br>Temp Max: {{pezInfo.tempMax}}
+      <br>pH Min: {{pezInfo.nivelPhMin}}
+      <br>pH Max: {{pezInfo.nivelPhMax}}
+    </p>
+    <hr>
+    <p>
+      Temperamento: {{pezInfo.temperamento}}
+      <br>Dieta: {{pezInfo.dieta}}
+      <br>Longitud: {{pezInfo.longitud}}
+    </p>
+  </div>
+  <div class="card-footer" *ngIf="operacion=='quitar' || operacion=='agregar' || operacion=='editar'">
+    <div class="d-grid gap-2">
+      <button *ngIf="operacion=='quitar'" (click)="quitarPezAcuario()" class="btn btn-primary"><i class="fa-solid fa-circle-minus"></i> Quitar Pez</button>
+      <button *ngIf="operacion=='agregar'" (click)="agregarPezAcuario()" class="btn btn-primary"><i class="fa-solid fa-circle-plus"></i> Agregar Pez</button>
+
+      <button *ngIf="operacion=='editar'" (click)="editarPez(pezInfo)" class="btn btn-primary"><i class="fa-solid fa-pencil"></i> Editar Pez</button>
+
+    </div>
+  </div>
+</div>

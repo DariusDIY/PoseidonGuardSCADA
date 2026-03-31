@@ -1,0 +1,9 @@
+@import url(../../../styles.css);
+
+
+footer{
+  padding: 15px;
+  background: var(--color-azul);
+  color: var(--color-gris);
+  text-align: center;
+}

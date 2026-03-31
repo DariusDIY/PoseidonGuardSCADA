@@ -1,0 +1,26 @@
+@import url(../../../styles.css);
+
+
+.fotografia1{
+  background-image: url('../../../assets/images/acuarioHome1.jpg');
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fotografia2{
+  background-image: url('../../../assets/images/acuarioHome2.jpg');
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

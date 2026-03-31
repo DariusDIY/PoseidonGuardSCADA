@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="row cabeceraHistorial py-2">
+      <div class="col botonIzq"><button (click)="phAnteriorTrimestre()"><i class="fa-solid fa-circle-left fa-2x"></i></button></div>
+      <div class="col text-center">
+        <h5 class="text-center"><i class="fa-solid fa-chart-line"></i><b> Nivel de pH</b></h5>
+        {{PhTrimestreInicio}} -> {{PhTrimestreFin}}
+      </div>
+      <div class="col botonDer"><button (click)="phSiguienteTrimestre()"><i class="fa-solid fa-circle-right fa-2x"></i></button></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p *ngIf="!historialPhEstado" class="text-center mt-3"><i class="fa-solid fa-circle-exclamation fa-2x"></i><br><b>No existen registros de nivel de pH en el rango seleccionado</b></p>
+        <p-chart *ngIf="historialPhEstado" type="line" [data]="data" [options]="options" class="h-[30rem]" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+[
+  {
+    "fecha":"2025-04-14",
+    "horarios": {
+      "horario1":[
+        {
+          "horario": 1,
+          "cantidad": 10,
+          "registro": "00:00:00"
+        },
+        {
+          "horario": 1,
+          "cantidad": 30,
+          "registro": "19:21:00"
+        },
+        {
+          "horario": 1,
+          "cantidad": 10,
+          "registro": "19:54:23"
+        },
+        {
+          "horario": 1,
+          "cantidad": 10,
+          "registro": "19:58:43"
+        }
+      ],
+      "horario2":[
+        {
+          "horario": 2,
+          "cantidad": 20,
+          "registro": "20:15:03"
+        }
+      ],
+      "horario3":[
+        {
+          "horario": 3,
+          "cantidad": 13,
+          "registro": "21:30:42"
+        }
+      ]
+    }
+  },
+  {
+    "fecha":"2025-04-14",
+    "horarios": {
+      "horario1":[
+        {
+          "horario": 1,
+          "cantidad": 30,
+          "registro": "00:00:00"
+        },
+        {
+          "horario": 1,
+          "cantidad": 10,
+          "registro": "09:40:13"
+        }
+      ],
+      "horario2":[
+        {
+          "horario": 2,
+          "cantidad": 20,
+          "registro": "09:40:44"
+        },
+        {
+          "horario": 2,
+          "cantidad": 150,
+          "registro": "22:00:00"
+        }
+      ],
+      "horario3":[
+        null
+      ]
+    }
+  }
+
+]
