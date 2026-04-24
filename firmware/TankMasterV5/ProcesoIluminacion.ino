@@ -34,7 +34,13 @@ void verificarSensorLuminosidad(){
 
   if (iluminacion[9] == HIGH) {
     //Serial.println("💡 Luz ENCENDIDA");
+    if( (iluminacion[9] == HIGH) && (iluminacion[0] == 0)){
+      tonoErrorIluminacion();
+    }
   } else {
     //Serial.println("💤 Luz APAGADA");
+    if( (iluminacion[9] == LOW) && (iluminacion[0] == 1)){
+      tonoErrorIluminacion();
+    }
   }
 }
