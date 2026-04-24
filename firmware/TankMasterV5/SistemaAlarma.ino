@@ -151,6 +151,15 @@ void tonoErrorPh(int estado){
     delay(500);     
     noTone(PIN_BUZZER);
   }
+
+  void tonoErrorIluminacion(){           // Función de tono de error
+    tone(PIN_BUZZER, 65,1000);  // DO - C -262
+    delay(500);               // Esperamos 500ms
+    tone(PIN_BUZZER, 65,1000);  // DO - C -262
+    delay(500);               // Esperamos 500ms
+    digitalWrite(PIN_BUZZER, 0);
+    noTone(PIN_BUZZER);
+}
 }
 
 void tonoErrorAlimentador(){
